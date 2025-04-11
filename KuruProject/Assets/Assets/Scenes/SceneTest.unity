@@ -373,6 +373,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6663251319875788106, guid: a5f752a899df9f640b4a1643e54d96c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663251319875788106, guid: a5f752a899df9f640b4a1643e54d96c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1835,27 +1843,27 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  OrbitStyle: 1
-  Radius: 10
+  OrbitStyle: 0
+  Radius: 3
   Orbits:
     Top:
       Radius: 2
-      Height: 3.18
+      Height: 2.23
     Center:
-      Radius: 4
-      Height: 2.25
+      Radius: 2.86
+      Height: 1.46
     Bottom:
       Radius: 2.5
-      Height: 0.1
-    SplineCurvature: 0.5
+      Height: 1.01
+    SplineCurvature: 1
   RecenteringTarget: 2
   HorizontalAxis:
     Value: 0
-    Center: 0
+    Center: -0
     Range: {x: -180, y: 180}
     Wrap: 1
     Recentering:
-      Enabled: 0
+      Enabled: 1
       Wait: 0.5
       Time: 0.5
     Restrictions: 0
@@ -1930,8 +1938,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611687220}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13722834, y: -0.0000000020756268, z: 9.247005e-10, w: 0.9905395}
-  m_LocalPosition: {x: 18.85, y: -4.1907997, z: 35.62}
+  m_LocalRotation: {x: -0.03799348, y: 0.0000002078186, z: 0.00000000790146, w: 0.999278}
+  m_LocalPosition: {x: 19.49, y: -5.3682823, z: 36.75885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2097,8 +2105,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952330940}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13722835, y: -0.00000000198563, z: 2.7508718e-10, w: 0.99053943}
-  m_LocalPosition: {x: 18.85, y: -4.1907997, z: 35.62}
+  m_LocalRotation: {x: -0.037993483, y: 0.00000020781862, z: 0.000000007901457, w: 0.999278}
+  m_LocalPosition: {x: 19.49, y: -5.3682823, z: 36.75885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
