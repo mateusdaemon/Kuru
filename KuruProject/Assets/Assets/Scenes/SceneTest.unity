@@ -313,6 +313,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1335915991227949061, guid: a5f752a899df9f640b4a1643e54d96c9, type: 3}
+      propertyPath: playerOrient
+      value: 
+      objectReference: {fileID: 1784893387}
     - target: {fileID: 2518031185306122809, guid: a5f752a899df9f640b4a1643e54d96c9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -356,6 +360,18 @@ PrefabInstance:
     - target: {fileID: 3459464183772841904, guid: a5f752a899df9f640b4a1643e54d96c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908708631129882776, guid: a5f752a899df9f640b4a1643e54d96c9, type: 3}
+      propertyPath: m_AngularDrag
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908708631129882776, guid: a5f752a899df9f640b4a1643e54d96c9, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174650343617065449, guid: a5f752a899df9f640b4a1643e54d96c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1983,6 +1999,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fdd380a51d14fd74b99f644d76077ba2, type: 3}
   m_PrefabInstance: {fileID: 1640476173}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1784893387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5174650343617065449, guid: a5f752a899df9f640b4a1643e54d96c9, type: 3}
+  m_PrefabInstance: {fileID: 141459281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb2b56df045ed34d846781e46cbcb40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1952330940
 GameObject:
   m_ObjectHideFlags: 0
