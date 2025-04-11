@@ -19,7 +19,6 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 movement = moveDirection * currentSpeed;
 
-        //rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
         rb.AddForce(new Vector3(movement.x, 0, movement.z));
     }
 }

@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
     private InputSystem_Actions inputActions;
+
     public float AimShoot { get; private set; }
     public float Attack { get; private set; }
     public Vector2 MoveDirection { get; private set; }
@@ -12,13 +14,12 @@ public class PlayerInput : MonoBehaviour
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
+        RegisterInputEvents();
         inputActions.Enable();
     }
 
     private void FixedUpdate()
     {
-        AimShoot = inputActions.Player.Attack.ReadValue<float>();
-        Attack = inputActions.Player.Attack.ReadValue<float>();
         MoveDirection = inputActions.Player.Move.ReadValue<Vector2>();
         Jump = inputActions.Player.Jump.ReadValue<float>();
         Sprint = inputActions.Player.Sprint.ReadValue<float>();
@@ -26,11 +27,48 @@ public class PlayerInput : MonoBehaviour
 
     private void OnDisable()
     {
+        UnregisterInputEvents();
         inputActions.Disable();
     }
 
     private void OnEnable()
     {
         inputActions.Enable();
+    }
+
+    private void RegisterInputEvents()
+    {
+        inputActions.Player.AimShoot.performed += OnAimShootStarted;
+        inputActions.Player.AimShoot.canceled += OnAimShootCancel;
+        inputActions.Player.Attack.performed += OnAttackStarted;
+        inputActions.Player.Attack.canceled += OnAttackCanceled;
+    }
+
+    private void UnregisterInputEvents()
+    {
+        inputActions.Player.AimShoot.performed -= OnAimShootStarted;
+        inputActions.Player.AimShoot.canceled -= OnAimShootCancel;
+        inputActions.Player.Attack.performed -= OnAttackStarted;
+        inputActions.Player.Attack.canceled -= OnAttackCanceled;
+    }
+
+    private void OnAimShootStarted(InputAction.CallbackContext ctx)
+    {
+        PlayerEvents.AimStarted();
+    }
+
+    private void OnAimShootCancel(InputAction.CallbackContext ctx)
+    {
+        PlayerEvents.AimCanceled();
+    }
+
+    private void OnAttackStarted(InputAction.CallbackContext ctx)
+    {
+        PlayerEvents.AttackStarted();
+    }
+
+    private void OnAttackCanceled(InputAction.CallbackContext ctx)
+    {
+        PlayerEvents.AttackCanceled();
     }
 }
