@@ -24,36 +24,4 @@ public class Player : MonoBehaviour
         playerOrient.Orient(playerInput.MoveDirection, forward, right);
         playerJump.TryJump(playerInput.Jump);
     }
-
-    private void OnEnable()
-    {
-        RegisterEvents();
-    }
-
-    private void OnDisable()
-    {
-        UnregisterEvents();
-    }
-
-    private void RegisterEvents()
-    {
-        PlayerEvents.OnAimStarted += OnAimStart;
-        PlayerEvents.OnAimCanceled += OnAimEnd;
-    }
-
-    private void UnregisterEvents()
-    {
-        PlayerEvents.OnAimStarted -= OnAimStart;
-        PlayerEvents.OnAimCanceled -= OnAimEnd;
-    }
-
-    private void OnAimStart()
-    {
-        HudManager.Instance.ToggleAimIcon(true);
-    }
-
-    private void OnAimEnd()
-    {
-        HudManager.Instance.ToggleAimIcon(false);
-    }
 }
