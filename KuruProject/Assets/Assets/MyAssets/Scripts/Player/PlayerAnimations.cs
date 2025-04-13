@@ -34,22 +34,23 @@ public class PlayerAnimations : MonoBehaviour
 
     private void OnAimStart()
     {
-
+        playerAnimator.SetBool("Draw", true);
     }
 
     private void OnAimEnd()
     {
-
+        playerAnimator.SetBool("Draw", false);
     }
 
     private void OnAttackStart()
     {
-
+        playerAnimator.SetBool("Charge", true);
     }
 
     private void OnAttackEnd()
     {
-
+        playerAnimator.SetBool("Charge", false);
+        playerAnimator.SetTrigger("Shoot");
     }
 
     private void OnPlayerMove(Vector3 direction, bool sprint)

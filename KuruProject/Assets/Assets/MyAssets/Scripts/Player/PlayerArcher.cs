@@ -10,6 +10,7 @@ public class PlayerArcher : MonoBehaviour
     [SerializeField] private float maxForce = 40f;
     [SerializeField] private CameraDirectionProvider cameraProvider;
     [SerializeField] private PlayerOrient playerOrient;
+    [SerializeField] private PlayerAnimations playerAnimations;
 
     private float currentCharge = 0f;
     private bool isCharging = false;
