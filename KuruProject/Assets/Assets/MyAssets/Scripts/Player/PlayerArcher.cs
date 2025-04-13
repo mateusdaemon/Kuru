@@ -9,9 +9,11 @@ public class PlayerArcher : MonoBehaviour
     [SerializeField] private float minForce = 10f;
     [SerializeField] private float maxForce = 40f;
     [SerializeField] private CameraDirectionProvider cameraProvider;
+    [SerializeField] private PlayerOrient playerOrient;
 
     private float currentCharge = 0f;
     private bool isCharging = false;
+    private bool isAiming = false;
 
     private void OnEnable()
     {
@@ -48,14 +50,24 @@ public class PlayerArcher : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (isAiming)
+        {
+            playerOrient.OrientShoot(cameraProvider.GetCameraForward(), cameraProvider.GetCameraRight());
+        }
+    }
+
     private void OnAimStart()
     {
         HudManager.Instance.ToggleAimIcon(true);
+        isAiming = true;
     }
 
     private void OnAimEnd()
     {
         HudManager.Instance.ToggleAimIcon(false);
+        isAiming = false;
     }
 
     private void OnAttackStart()

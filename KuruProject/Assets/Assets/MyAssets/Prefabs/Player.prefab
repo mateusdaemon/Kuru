@@ -251,6 +251,7 @@ MonoBehaviour:
   minForce: 5
   maxForce: 100
   cameraProvider: {fileID: 1675933277020874520}
+  playerOrient: {fileID: 5174650343617065449}
 --- !u!1 &5157394910648740222
 GameObject:
   m_ObjectHideFlags: 0
