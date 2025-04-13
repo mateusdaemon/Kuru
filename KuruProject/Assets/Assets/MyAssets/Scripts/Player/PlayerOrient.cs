@@ -15,9 +15,10 @@ public class PlayerOrient : MonoBehaviour
 
     public void OrientShoot(Vector3 camForward, Vector3 camRight)
     {
-        Vector3 targetDirection = (camForward + camRight).normalized;
+        //Vector3 targetDirection = (camForward + camRight).normalized;
+        Vector3 targetDirection = camForward;
 
         Quaternion toRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
-        transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 0.15f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 1f);
     }
 }

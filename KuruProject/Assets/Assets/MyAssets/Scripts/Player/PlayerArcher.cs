@@ -72,12 +72,14 @@ public class PlayerArcher : MonoBehaviour
 
     private void OnAttackStart()
     {
+        if (!isAiming) return;
         isCharging = true;
         currentCharge = 0f;
     }
 
     private void OnAttackEnd()
     {
+        if (!isAiming) return;
         isCharging = false;
         ShootArrow();
     }
