@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private Transform groundCheckPoint;
 
     private Rigidbody rb;
+    private bool canJump = true;
 
     private void Awake()
     {
@@ -16,11 +18,19 @@ public class PlayerJump : MonoBehaviour
 
     public void TryJump(float jumpInput)
     {
-        if (jumpInput > 0 && IsGrounded())
+        if (jumpInput > 0 && IsGrounded() && canJump)
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z); // zera y antes de pular
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            canJump = false;
+            Invoke(nameof(EnableJump), 0.5f);
+            PlayerEvents.PlayerJump();
         }
+    }
+
+    private void EnableJump()
+    {
+        canJump = true;
     }
 
     private bool IsGrounded()
