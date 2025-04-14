@@ -54,21 +54,21 @@ public class PlayerInput : MonoBehaviour
 
     private void OnAimShootStarted(InputAction.CallbackContext ctx)
     {
-        PlayerEvents.AimStarted();
+        PlayerActions.TryStartAim();
     }
 
     private void OnAimShootCancel(InputAction.CallbackContext ctx)
     {
-        PlayerEvents.AimCanceled();
+        PlayerActions.TryEndAim();
     }
 
     private void OnAttackStarted(InputAction.CallbackContext ctx)
     {
-        PlayerEvents.AttackStarted();
+        PlayerActions.TryStartAttack();
     }
 
     private void OnAttackCanceled(InputAction.CallbackContext ctx)
     {
-        PlayerEvents.AttackCanceled();
+        PlayerActions.TryEndAttack();
     }
 }

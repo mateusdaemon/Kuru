@@ -43,6 +43,7 @@ public class PlayerAnimations : MonoBehaviour
     private void OnAimEnd()
     {
         playerAnimator.SetBool("Draw", false);
+        playerAnimator.SetBool("Charge", false);
     }
 
     private void OnAttackStart()

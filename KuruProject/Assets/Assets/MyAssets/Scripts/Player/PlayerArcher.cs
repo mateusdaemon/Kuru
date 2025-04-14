@@ -69,6 +69,8 @@ public class PlayerArcher : MonoBehaviour
     {
         HudManager.Instance.ToggleAimIcon(false);
         isAiming = false;
+        isCharging = false;
+        currentCharge = 0f;
     }
 
     private void OnAttackStart()

@@ -2047,10 +2047,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerArcher
       objectReference: {fileID: 0}
-    - target: {fileID: 4899254979297335944, guid: 5f8db5476cb2a4345abef148e374a97b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.196
-      objectReference: {fileID: 0}
     - target: {fileID: 5284333977590570356, guid: 5f8db5476cb2a4345abef148e374a97b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.123684
