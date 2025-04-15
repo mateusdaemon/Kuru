@@ -19,11 +19,8 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 movement = moveDirection * currentSpeed;
 
-        // Projeta a direção de movimento para o espaço da câmera (ou jogador)
-        Vector3 localMovement = transform.InverseTransformDirection(moveDirection);
-
         // Envia direção normalizada (entre -1 e 1) para a blend tree
-        PlayerEvents.PlayerMove(localMovement, sprintInput != 0);
+        PlayerActions.TryToMove();
 
         rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
         //rb.AddForce(new Vector3(movement.x, 0, movement.z));

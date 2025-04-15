@@ -18,11 +18,16 @@ public class PlayerInput : MonoBehaviour
         inputActions.Enable();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         MoveDirection = inputActions.Player.Move.ReadValue<Vector2>();
         Jump = inputActions.Player.Jump.ReadValue<float>();
         Sprint = inputActions.Player.Sprint.ReadValue<float>();
+        
+        if (inputActions.Player.AimShoot.inProgress)
+        {
+            PlayerActions.TryStartAim();
+        }
     }
 
     private void OnDisable()

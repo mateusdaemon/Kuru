@@ -879,6 +879,7 @@ GameObject:
   - component: {fileID: 5368344951499597877}
   - component: {fileID: 357191490952780924}
   - component: {fileID: 1673283325193979117}
+  - component: {fileID: 1408575483334166770}
   m_Layer: 0
   m_Name: PlayerArcher
   m_TagString: Untagged
@@ -999,6 +1000,7 @@ MonoBehaviour:
   playerOrient: {fileID: 4846294297545002618}
   playerJump: {fileID: 1699981914708145292}
   cameraDirectionProvider: {fileID: 2192241801466145304}
+  playerDirectionProvider: {fileID: 1408575483334166770}
 --- !u!114 &1939985708935087130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,7 +1089,6 @@ MonoBehaviour:
   cameraProvider: {fileID: 2192241801466145304}
   playerOrient: {fileID: 4846294297545002618}
   playerAnimations: {fileID: 357191490952780924}
-  playerState: {fileID: 0}
 --- !u!114 &357191490952780924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,6 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1883764376210534388}
+  playerDirectionProvider: {fileID: 1408575483334166770}
 --- !u!114 &1673283325193979117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,6 +1113,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58cd0f7855c6c5d4f9368e8dcb8568e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1408575483334166770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2575534644819048327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1142f1e43b96c534ca049a787f23c505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2595244189957395266

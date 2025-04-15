@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,20 +17,58 @@ public class PlayerActions : MonoBehaviour
     {
         if (PlayerStateMachine.CurrentState == PlayerState.Charging)
         {
-            PlayerStateMachine.SetState(PlayerState.Idle);
+            PlayerStateMachine.SetState(PlayerState.None);
             PlayerEvents.AttackCanceled();
         }
     }
 
     public static void TryStartAim()
     {
-        PlayerStateMachine.SetState(PlayerState.Aiming);
-        PlayerEvents.AimStarted();
+        if (PlayerStateMachine.CurrentState != PlayerState.Aiming &&
+            PlayerStateMachine.CurrentState != PlayerState.Charging &&
+            PlayerStateMachine.CurrentState != PlayerState.Jumping)
+        {
+            PlayerStateMachine.SetState(PlayerState.Aiming);
+            PlayerEvents.AimStarted();
+        }
     }
 
     public static void TryEndAim()
     {
-        PlayerStateMachine.SetState(PlayerState.Idle);
         PlayerEvents.AimCanceled();
+        PlayerStateMachine.SetState(PlayerState.None);
+    }
+
+    public static void TryGoIdle()
+    {
+        if (PlayerStateMachine.CurrentState != PlayerState.Idle &&
+            PlayerStateMachine.CurrentState != PlayerState.Aiming &&
+            PlayerStateMachine.CurrentState != PlayerState.Charging)
+        {
+            PlayerStateMachine.SetState(PlayerState.Idle);
+        }
+    }
+
+    public static void TryToMove()
+    {
+        if (PlayerStateMachine.CurrentState != PlayerState.Aiming &&
+            PlayerStateMachine.CurrentState != PlayerState.Charging &&
+            PlayerStateMachine.CurrentState != PlayerState.Jumping)
+        {
+            PlayerStateMachine.SetState(PlayerState.Moving);
+            PlayerEvents.PlayerMove();
+        }
+    }
+
+    public static void TryToJump()
+    {
+        PlayerStateMachine.SetState(PlayerState.Jumping);
+        PlayerEvents.AimCanceled();
+        PlayerEvents.PlayerJump();
+    }
+
+    internal static void StopJump()
+    {
+        PlayerStateMachine.SetState(PlayerState.None);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerAnimations : MonoBehaviour
 {
     [SerializeField] Animator playerAnimator;
+    [SerializeField] PlayerDirectionProvider playerDirectionProvider;
 
     private void OnEnable()
     {
@@ -57,11 +58,11 @@ public class PlayerAnimations : MonoBehaviour
         playerAnimator.SetTrigger("Shoot");
     }
 
-    private void OnPlayerMove(Vector3 direction, bool sprint)
+    private void OnPlayerMove()
     {
-        playerAnimator.SetFloat("PosX", direction.x);
-        playerAnimator.SetFloat("PosY", direction.z);
-        playerAnimator.SetBool("Sprint", sprint);
+        playerAnimator.SetFloat("PosX", playerDirectionProvider.PlayerDirection.x);
+        playerAnimator.SetFloat("PosY", playerDirectionProvider.PlayerDirection.z);
+        playerAnimator.SetBool("Sprint", playerDirectionProvider.PlayerSprint);
     }
 
     private void OnPlayerJump()

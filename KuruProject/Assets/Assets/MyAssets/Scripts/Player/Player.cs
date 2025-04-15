@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerOrient playerOrient;
     [SerializeField] private PlayerJump playerJump;
     [SerializeField] private CameraDirectionProvider cameraDirectionProvider;
+    [SerializeField] private PlayerDirectionProvider playerDirectionProvider;
 
     void FixedUpdate()
     {
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
 
         playerMove.Move(playerInput.MoveDirection, forward, right, playerInput.Sprint);
         playerOrient.Orient(playerInput.MoveDirection, forward, right);
+        playerDirectionProvider.SetDirection(playerInput.MoveDirection, forward, right, playerInput.Sprint);
         playerJump.TryJump(playerInput.Jump);
     }
 }

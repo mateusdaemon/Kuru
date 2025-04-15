@@ -24,13 +24,14 @@ public class PlayerJump : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             canJump = false;
             Invoke(nameof(EnableJump), 0.5f);
-            PlayerEvents.PlayerJump();
+            PlayerActions.TryToJump();
         }
     }
 
     private void EnableJump()
     {
         canJump = true;
+        PlayerActions.StopJump();
     }
 
     private bool IsGrounded()
