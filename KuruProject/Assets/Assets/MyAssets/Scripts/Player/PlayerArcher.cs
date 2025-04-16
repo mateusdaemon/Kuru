@@ -68,7 +68,6 @@ public class PlayerArcher : MonoBehaviour
     private void OnAimEnd()
     {
         HudManager.Instance.ToggleAimIcon(false);
-        Debug.Log("Remove icon!");
         isAiming = false;
         isCharging = false;
         currentCharge = 0f;

@@ -9,6 +9,7 @@ public static class PlayerEvents
     public static event Action OnAttackCanceled;
     public static event Action OnPlayerJump;
     public static event Action OnPlayerMove;
+    public static event Action OnPlayerInteract;
 
     public static void AimStarted() => OnAimStarted?.Invoke();
     public static void AimCanceled() => OnAimCanceled?.Invoke();
@@ -16,4 +17,5 @@ public static class PlayerEvents
     public static void AttackCanceled() => OnAttackCanceled?.Invoke();
     public static void PlayerJump() => OnPlayerJump?.Invoke();
     public static void PlayerMove() => OnPlayerMove?.Invoke();
+    public static void PlayerInteract() => OnPlayerInteract?.Invoke();
 }

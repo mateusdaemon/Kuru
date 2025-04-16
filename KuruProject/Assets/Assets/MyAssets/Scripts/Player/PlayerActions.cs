@@ -6,7 +6,8 @@ public class PlayerActions : MonoBehaviour
 {
     public static void TryStartAttack()
     {
-        if (PlayerStateMachine.CurrentState == PlayerState.Aiming)
+        if (PlayerStateMachine.CurrentState == PlayerState.Aiming &&
+            PlayerStateMachine.CurrentState != PlayerState.Interacting)
         {
             PlayerStateMachine.SetState(PlayerState.Charging);
             PlayerEvents.AttackStarted();
@@ -26,7 +27,8 @@ public class PlayerActions : MonoBehaviour
     {
         if (PlayerStateMachine.CurrentState != PlayerState.Aiming &&
             PlayerStateMachine.CurrentState != PlayerState.Charging &&
-            PlayerStateMachine.CurrentState != PlayerState.Jumping)
+            PlayerStateMachine.CurrentState != PlayerState.Jumping &&
+            PlayerStateMachine.CurrentState != PlayerState.Interacting)
         {
             PlayerStateMachine.SetState(PlayerState.Aiming);
             PlayerEvents.AimStarted();
@@ -43,7 +45,8 @@ public class PlayerActions : MonoBehaviour
     {
         if (PlayerStateMachine.CurrentState != PlayerState.Idle &&
             PlayerStateMachine.CurrentState != PlayerState.Aiming &&
-            PlayerStateMachine.CurrentState != PlayerState.Charging)
+            PlayerStateMachine.CurrentState != PlayerState.Charging &&
+            PlayerStateMachine.CurrentState != PlayerState.Interacting)
         {
             PlayerStateMachine.SetState(PlayerState.Idle);
         }
@@ -53,7 +56,8 @@ public class PlayerActions : MonoBehaviour
     {
         if (PlayerStateMachine.CurrentState != PlayerState.Aiming &&
             PlayerStateMachine.CurrentState != PlayerState.Charging &&
-            PlayerStateMachine.CurrentState != PlayerState.Jumping)
+            PlayerStateMachine.CurrentState != PlayerState.Jumping &&
+            PlayerStateMachine.CurrentState != PlayerState.Interacting)
         {
             PlayerStateMachine.SetState(PlayerState.Moving);
             PlayerEvents.PlayerMove();
@@ -67,7 +71,23 @@ public class PlayerActions : MonoBehaviour
         PlayerEvents.PlayerJump();
     }
 
-    internal static void StopJump()
+    public static void StopJump()
+    {
+        PlayerStateMachine.SetState(PlayerState.None);
+    }
+
+    public static void TryToInteract()
+    {
+        if (PlayerStateMachine.CurrentCondition == PlayerCondition.CanCollect &&
+            PlayerStateMachine.CurrentState != PlayerState.Jumping)
+        {
+            PlayerStateMachine.SetState(PlayerState.Interacting);
+            PlayerEvents.AimCanceled();
+            PlayerEvents.PlayerInteract();
+        }
+    }
+
+    public static void StopInteract()
     {
         PlayerStateMachine.SetState(PlayerState.None);
     }

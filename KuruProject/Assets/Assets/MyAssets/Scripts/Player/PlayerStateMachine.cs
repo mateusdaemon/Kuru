@@ -9,12 +9,20 @@ public enum PlayerState
     Moving,
     Aiming,
     Charging,
-    Jumping
+    Jumping,
+    Interacting
+}
+
+public enum PlayerCondition
+{
+    None,
+    CanCollect
 }
 
 public class PlayerStateMachine : MonoBehaviour
 {
     public static PlayerState CurrentState { get; private set; } = PlayerState.Idle;
+    public static PlayerCondition CurrentCondition { get; private set; } = PlayerCondition.None;
 
     private void Update()
     {
@@ -24,5 +32,10 @@ public class PlayerStateMachine : MonoBehaviour
     public static void SetState(PlayerState state)
     {
         CurrentState = state;
+    }
+
+    public static void SetCondition(PlayerCondition condition)
+    {
+        CurrentCondition = condition;
     }
 }

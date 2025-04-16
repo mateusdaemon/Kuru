@@ -10,7 +10,6 @@ public class PlayerDirectionProvider : MonoBehaviour
     {
         Vector3 moveDirection = (camForward * input.y + camRight * input.x).normalized;
         PlayerDirection = transform.InverseTransformDirection(moveDirection);
-        Debug.Log(PlayerDirection.ToString());
         PlayerSprint = sprint > 0;
     }
 }

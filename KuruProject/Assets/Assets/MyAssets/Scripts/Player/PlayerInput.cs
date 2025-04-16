@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -47,6 +48,9 @@ public class PlayerInput : MonoBehaviour
         inputActions.Player.AimShoot.canceled += OnAimShootCancel;
         inputActions.Player.Attack.performed += OnAttackStarted;
         inputActions.Player.Attack.canceled += OnAttackCanceled;
+
+        inputActions.Player.Interact.performed += OnInteractStart;
+        inputActions.Player.Interact.canceled += OnInteractEnd;
     }
 
     private void UnregisterInputEvents()
@@ -55,6 +59,9 @@ public class PlayerInput : MonoBehaviour
         inputActions.Player.AimShoot.canceled -= OnAimShootCancel;
         inputActions.Player.Attack.performed -= OnAttackStarted;
         inputActions.Player.Attack.canceled -= OnAttackCanceled;
+
+        inputActions.Player.Interact.performed -= OnInteractStart;
+        inputActions.Player.Interact.canceled -= OnInteractEnd;
     }
 
     private void OnAimShootStarted(InputAction.CallbackContext ctx)
@@ -75,5 +82,15 @@ public class PlayerInput : MonoBehaviour
     private void OnAttackCanceled(InputAction.CallbackContext ctx)
     {
         PlayerActions.TryEndAttack();
+    }
+
+    private void OnInteractStart(InputAction.CallbackContext context)
+    {
+        PlayerActions.TryToInteract();
+    }
+
+    private void OnInteractEnd(InputAction.CallbackContext context)
+    {
+        PlayerActions.StopInteract();
     }
 }

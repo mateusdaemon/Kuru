@@ -24,6 +24,7 @@ public class PlayerAnimations : MonoBehaviour
         PlayerEvents.OnAttackCanceled += OnAttackEnd;
         PlayerEvents.OnPlayerMove += OnPlayerMove;
         PlayerEvents.OnPlayerJump += OnPlayerJump;
+        PlayerEvents.OnPlayerInteract += OnPlayerInteract;
     }
 
     private void UnregisterEvents()
@@ -34,6 +35,7 @@ public class PlayerAnimations : MonoBehaviour
         PlayerEvents.OnAttackCanceled -= OnAttackEnd;
         PlayerEvents.OnPlayerMove -= OnPlayerMove;
         PlayerEvents.OnPlayerJump -= OnPlayerJump;
+        PlayerEvents.OnPlayerInteract -= OnPlayerInteract;
     }
 
     private void OnAimStart()
@@ -68,5 +70,10 @@ public class PlayerAnimations : MonoBehaviour
     private void OnPlayerJump()
     {
         playerAnimator.SetTrigger("Jump");
+    }
+
+    private void OnPlayerInteract()
+    {
+        playerAnimator.SetTrigger("Interact");
     }
 }
