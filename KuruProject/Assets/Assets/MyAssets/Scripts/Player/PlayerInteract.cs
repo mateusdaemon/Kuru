@@ -58,7 +58,7 @@ public class PlayerInteract : MonoBehaviour
         {
             nearbyItem.Collect();
             nearbyItem = null;
-            Invoke(nameof(DisableInteract), 3.0f);
+            PlayerStateMachine.SetCondition(PlayerCondition.None);
         }
     }
 }
